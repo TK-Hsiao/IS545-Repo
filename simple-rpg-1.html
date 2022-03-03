@@ -73,17 +73,15 @@
     </body>
     <script>
     var embedded = vegaEmbed('#myviz', 'combined_rpg.json');
-    window.addEventListener("DOMContentLoaded", (event) => {
-        document.getElementById("add_character").addEventListener("click", 
-            (button, event) => {
-                var newCharacter = {};
-                for (let attr of attrs) {
-                    newCharacter[attr] = document.getElementById(attr).value;
-                }
-                var cs = vega.changeset().interst([newCharacter]);
-                embedded.then( res => res.view.change('characters', cs).run());
+    document.getElementById("add_character").addEventListener("click", 
+        (button, event) => {
+            var attrs = ["name", "class", "agility", "intelligence", "charisma", "constitution", "wisdom", "strength", "maxhp", "hp"]
+            var newCharacter = {};
+            for (let attr of attrs) {
+                newCharacter[attr] = document.getElementById(attr).value;
+            }
+            var cs = vega.changeset().interst([newCharacter]);
+            embedded.then( res => res.view.change('characters', cs).run());
             });
-        var attrs = ["name", "class", "agility", "intelligence", "charisma", "constitution", "wisdom", "strength", "maxhp", "hp"]
-    });
     </script>
 </html>
