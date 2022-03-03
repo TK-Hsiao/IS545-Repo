@@ -28,9 +28,8 @@
     var embedded = vegaEmbed('#myviz', 'combined_rpg.json');
     document.getElementById("add_character").addEventListener("click", 
         (button, event) => {
-            var attrs = ["name", "class", "agility", "intelligence", "charisma", "constitution", "wisdom", "strength", "maxhp", "hp"]
             var newCharacter = {};
-            for (let attr of attrs) {
+            for (let attr of ["name", "class", "agility", "intelligence", "charisma", "constitution", "wisdom", "strength", "maxhp", "hp"]) {
                 newCharacter[attr] = document.getElementById(attr).value;
             }
             var cs = vega.changeset().interst([newCharacter]);
