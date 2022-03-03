@@ -7,61 +7,22 @@
     </head>
 
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1>Hello!</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <p>My html page</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-7">
-                    <p>Graph area</p>
-                </div>
-                <div class="col-5">
-                    <p>Add new character area</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-6">
-                    <div id="myviz"></div>
-                </div>
-                <div class="col-6">
-                    <div class="col">
-                        <form>
-                            <label class="form-label" for="name">Character Name</label><input class="form-control" id="name"
-                                name="name"></input>
-                            <label class="form-label" for="class">Character Class</label><input class="form-control" id="class"
-                                name="class"></input>
-                            <label class="form-label" for="agility">Character Agility</label><input class="form-control"
-                                id="agility" name="agility"></input>
-                            <label class="form-label" for="intelligence">Character intelligence</label><input
-                                class="form-control" id="intelligence" name="intelligence"></input>
-                            <label class="form-label" for="charisma">Character charisma</label><input class="form-control"
-                                id="charisma" name="charisma"></input>
-                            <label class="form-label" for="constitution">Character constitution</label><input
-                                class="form-control" id="constitution" name="constitution"></input>
-                            <label class="form-label" for="wisdom">Character wisdom</label><input class="form-control"
-                                id="wisdom" name="wisdom"></input>
-                            <label class="form-label" for="strength">Character strength</label><input class="form-control"
-                                id="strength" name="strength"></input>
-                            <label class="form-label" for="maxhp">Character Max HP</label><input class="form-control" id="maxhp"
-                                name="maxhp"></input>
-                            <label class="form-label" for="hp">Character HP</label><input class="form-control" id="hp"
-                                name="hp"></input>
-                            <button id="add_character">Add Character</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <h1>Hello!</h1>
+        <p>My html page</p>
+        <div id="myviz"></div>
+        <ul>
+            <li><label for="name">Character name</label><input id="name" name="name"></input></li>
+            <li><label for="class">Character class</label><input id="class" name="class"></input></li>
+            <li><label for="agility">Character agility</label><input id="agility" name="agility"></input></li>
+            <li><label for="intelligence">Character class</label><input id="intelligence" name="intelligence"></input></li>
+            <li><label for="charisma">Character class</label><input id="charisma" name="charisma"></input></li>
+            <li><label for="constitution">Character class</label><input id="constitution" name="constitution"></input></li>
+            <li><label for="strength">Character class</label><input id="strength" name="strength"></input></li>
+            <li><label for="maxhp">Character class</label><input id="maxhp" name="maxhp"></input></li>
+            <li><label for="hp">Character class</label><input id="hp" name="hp"></input></li>
+            <li><label for="class">Character class</label><input id="class" name="class"></input></li>
+            <li><button id="add_character">Add Character</button></li>
+        </ul>
     </body>
     <script>
     var embedded = vegaEmbed('#myviz', 'combined_rpg.json');
