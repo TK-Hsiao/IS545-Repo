@@ -33,7 +33,7 @@
             for (let attr of ["name", "class", "agility", "intelligence", "charisma", "constitution", "wisdom", "strength", "maxhp", "hp"]) {
                 newCharacter[attr] = document.getElementById(attr).value;
             }
-            var cs = vega.changeset().interst([newCharacter]);
+            var cs = vega.changeset().insert([newCharacter]);
             embedded.then(res => res.view.change('characters', cs).run());
             })
     </script>
