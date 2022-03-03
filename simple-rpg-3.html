@@ -46,61 +46,39 @@
                 <div class="col-6">
                     <div class="col">
                         <form>
-                            <div>
-                                <label class="form-label" for="name">Character Name</label><input class="form-control" id="name"
+                            <label class="form-label" for="name">Character Name</label><input class="form-control" id="name"
                                 name="name"></input>
-                            </div>
-                            <div>
-                                <label class="form-label" for="class">Character Class</label><input class="form-control" id="class"
+                            <label class="form-label" for="class">Character Class</label><input class="form-control" id="class"
                                 name="class"></input>
-                            </div>
-                            <div>
-                                <label class="form-label" for="agility">Character Agility</label><input class="form-control"
+                            <label class="form-label" for="agility">Character Agility</label><input class="form-control"
                                 id="agility" name="agility"></input>
-                            </div>
-                            <div>
-                                <label class="form-label" for="intelligence">Character intelligence</label><input
+                            <label class="form-label" for="intelligence">Character intelligence</label><input
                                 class="form-control" id="intelligence" name="intelligence"></input>
-                            </div>
-                            <div>
-                                <label class="form-label" for="charisma">Character charisma</label><input class="form-control"
+                            <label class="form-label" for="charisma">Character charisma</label><input class="form-control"
                                 id="charisma" name="charisma"></input>
-                            </div>
-                            <div>
-                                <label class="form-label" for="constitution">Character constitution</label><input
+                            <label class="form-label" for="constitution">Character constitution</label><input
                                 class="form-control" id="constitution" name="constitution"></input>
-                            </div>
-                            <div>
-                                <label class="form-label" for="wisdom">Character wisdom</label><input class="form-control"
+                            <label class="form-label" for="wisdom">Character wisdom</label><input class="form-control"
                                 id="wisdom" name="wisdom"></input>
-                            </div>
-                            <div>
-                                <label class="form-label" for="strength">Character strength</label><input class="form-control"
+                            <label class="form-label" for="strength">Character strength</label><input class="form-control"
                                 id="strength" name="strength"></input>
-                            </div>
-                            <div>
-                                <label class="form-label" for="maxhp">Character Max HP</label><input class="form-control" id="maxhp"
+                            <label class="form-label" for="maxhp">Character Max HP</label><input class="form-control" id="maxhp"
                                 name="maxhp"></input>
-                            </div>
-                            <div>
-                                <label class="form-label" for="hp">Character HP</label><input class="form-control" id="hp"
+                            <label class="form-label" for="hp">Character HP</label><input class="form-control" id="hp"
                                 name="hp"></input>
-                            </div>
                             <button id="add_character">Add Character</button>
                         </form>
                     </div>
                 </div>
             </div>
-
         </div>
     </body>
     <script>
     var embedded = vegaEmbed('#myviz', 'combined_rpg.json');
     document.getElementById("add_character").addEventListener("click", 
         (button, event) => {
-            var attrs = ["name", "class", "agility", "intelligence", "charisma", "constitution", "wisdom", "strength", "maxhp", "hp"]
             var newCharacter = {};
-            for (let attr of attrs) {
+            for (let attr of ["name", "class", "agility", "intelligence", "charisma", "constitution", "wisdom", "strength", "maxhp", "hp"]) {
                 newCharacter[attr] = document.getElementById(attr).value;
             }
             var cs = vega.changeset().insert([newCharacter]);
