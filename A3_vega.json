@@ -1,0 +1,260 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "config": {
+        "concat": {
+            "spacing": 0
+        }
+    },
+    "data": {
+        "url": "https://gis-cityofchampaign.opendata.arcgis.com/datasets/979bbeefffea408e8f1cb7a397196c64_22.csv?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D",
+        "format": {"type": "csv"},
+        "name": "tree_data"
+    },
+    "vconcat":[
+        {
+            "hconcat":[
+                {
+                    "title": {
+                        "text": "Single Selection",
+                        "fontSize": 25
+                    },
+                    "width": 500,
+                    "height": 500,
+                    "params": [
+                        {
+                            "name": "SelectOne", "select": {"type": "point", "on": "mouseover"}
+                        }
+                    ],
+                    "mark": {
+                        "type": "point", 
+                        "color": "lightblue"
+                    },
+                    "encoding": {
+                        "x":{
+                            "field": "X",
+                            "type": "quantitative",
+                            "scale": {
+                                "domain": [-9833187.462, -9821367.056]
+                            }
+                        },
+                        "y":{
+                            "field": "Y",
+                            "type": "quantitative",
+                            "scale": {
+                                "domain": [4874946.849, 4889712.463]
+                            }
+                        },
+                        "tooltip": {"field": "FROMSTR", "type": "nominal"},
+                        "color":{
+                            "value": "lightblue",
+                            "condition": {
+                                "param": "SelectOne", 
+                                "value": "purple"
+                            }
+                        },
+                        "size": {
+                            "value": 5,
+                            "condition": {"param": "SelectOne", "value": 50}
+                        }
+                    }
+                },
+                {
+                    "title": {
+                        "text": "Brush Selection",
+                        "fontSize": 25
+                    },
+                    "width": 500,
+                    "height": 500,
+                    "params": [
+                        {
+                            "name": "brush", "select": "interval"
+                        }
+                    ],
+                    "mark": "point",
+                    "encoding": {
+                        "x":{
+                            "field": "X",
+                            "type": "quantitative",
+                            "scale": {
+                                "domain": [-9833187.462, -9821367.056]
+                            }
+                        },
+                        "y":{
+                            "field": "Y",
+                            "type": "quantitative",
+                            "scale": {
+                                "domain": [4874946.849, 4889712.463]
+                            }
+                        },
+                        "color":{
+                            "value": "lightblue",
+                            "condition": {
+                                "param": "brush", 
+                                "value": "darkgrey"
+                            }
+                        },
+                        "size":{
+                            "value": 5
+                        }
+                    }
+                },
+                {
+                    "title": {
+                        "text": "Pan-Zoom",
+                        "fontSize": 25
+                    },
+                    "width": 500,
+                    "height": 500,
+                    "params": [
+                        {
+                            "name": "pan_zoom", 
+                            "select": "interval",
+                            "bind": "scales"
+                        }
+                    ],
+                    "mark": "circle",
+                    "encoding": {
+                        "x":{
+                            "field": "X",
+                            "type": "quantitative",
+                            "scale": {
+                                "domain": [-9825955, -9824293]
+                            }
+                        },
+                        "y":{
+                            "field": "Y",
+                            "type": "quantitative",
+                            "scale": {
+                                "domain": [4879664, 4881901]
+                            }
+                        },
+                        "size":{
+                            "value": 50
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "title": {
+                "text": "Brush Selection; Pan-Zoom",
+                "fontSize": 25
+            },
+            "width": 500,
+            "height": 500,
+            "params": [
+                {
+                    "name": "pan_zoom2", 
+                    "select": "interval",
+                    "bind": "scales"
+                },
+                {
+                    "name": "brush2", "select": "interval"
+                }
+            ],
+            "mark": "circle",
+            "encoding": {
+                "x":{
+                    "field": "X",
+                    "type": "quantitative",
+                    "scale": {
+                        "domain": [-9825955, -9824293]
+                    }
+                },
+                "y":{
+                    "field": "Y",
+                    "type": "quantitative",
+                    "scale": {
+                        "domain": [4879664, 4881901]
+                    }
+                },
+                "size":{
+                    "value": 50
+                },
+                "color":{
+                    "value": "lightblue",
+                    "condition": {
+                        "param": "brush2", 
+                        "value": "darkgrey"
+                    }
+                }
+            }
+        },
+        {
+            "title": {
+                "text": "Brush Selection; Aggreation",
+                "fontSize": 25
+            },
+            "vconcat": [
+                {
+                    "width": 500,
+                    "height": 600,
+                    "params": [
+                        {
+                            "name": "brush3", 
+                            "select": {"type": "interval", "encodings": ["x"]}
+                        }
+                    ],
+                    "mark": "point",
+                    "encoding": {
+                        "x":{
+                            "field": "X",
+                            "type": "quantitative",
+                            "scale": {
+                                "domain": [-9833187.462, -9821367.056]
+                            }
+                            },
+                        "y":{
+                            "field": "Y",
+                            "type": "quantitative",
+                            "scale": {
+                                "domain": [4874946.849, 4889712.463]
+                            }
+                            },
+                        "color":{
+                            "condition": {
+                                "param": "brush3", 
+                                "title": "TreeType",
+                                "field": "TREETYPE",
+                                "type": "nominal",
+                                "scale": {
+                                    "domain": ["Tree", "Vacant Site", "Retired", "Stump", "Private"],
+                                    "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]
+                                }
+                            },
+                            "value": "lightgreen"
+                        },
+                        "size":{
+                            "value": 5
+                        }    
+                    },
+                    "transform": [{"filter": {"param": "click"}}]  
+                },
+                {
+                    "encoding": {
+                      "color": {
+                        "condition": {
+                          "param": "click",
+                          "field": "TREETYPE",
+                          "scale": {
+                            "domain": ["Tree", "Vacant Site", "Retired", "Stump", "Private"],
+                            "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]
+                          }
+                        },
+                        "value": "lightgreen"
+                      },
+                      "x": {"aggregate": "count"},
+                      "y": {"title": "TreeType", "field": "TREETYPE"}
+                    },
+                    "width": 500,
+                    "mark": "bar",
+                    "params": [{
+                      "name": "click",
+                      "select": {"type": "point", "encodings": ["color"]}
+                    }],
+                    "transform": [{"filter": {"param": "brush3"}}]
+                  }
+            ]
+        }
+    ]
+}

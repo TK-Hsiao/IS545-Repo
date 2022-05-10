@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "name": "My Values",
+      "values": [
+        {
+          "name": "Matt",
+          "patience": [
+            {"time": 1, "value": 20},
+            {"time": 2, "value": 40},
+            {"time": 3, "value": 50},
+            {"time": 4, "value": 10}
+          ],
+          "statistics": {"year": 20}
+        },
+        {
+          "name": "Esther",
+          "patience": [
+            {"time": 1, "value": 40},
+            {"time": 2, "value": 10},
+            {"time": 3, "value": 30},
+            {"time": 4, "value": 15},
+            
+          ],
+          "statistics": {"year": 10}
+        }
+      ]
+    },
+    "transform": [{"flatten": ["patience"]}],
+    "mark": "point",
+    "encoding": {
+      "x": {"field": "patience.time", "type": "quantitative"},
+      "y": {"field": "patience.value", "type": "quantitative"},
+      "color": {"field": "name", "type": "nominal"},
+      "size": {"field": "statistics.year", "type": "quantitative"}
+    }
+  }

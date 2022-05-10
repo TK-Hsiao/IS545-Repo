@@ -1,0 +1,61 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>This is a title</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/reset.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/reveal.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/theme/white.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.11.2/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/reveal.js-copycode@1.0.1/plugin/copycode/copycode.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/dist/reveal.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/plugin/markdown/markdown.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/plugin/highlight/highlight.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/plugin/notes/notes.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/plugin/math/math.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/d3@7.1.1/dist/d3.min.js" integrity="sha256-rblfh2jLoLyQozdZ2Ld8dL1JgFny52U1spVdvUOo9Vs=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1> Hello! </h1>
+                </section>
+                <section>
+                    <h1> Hello again! </h1>
+                    Some text.
+                </section>
+                <section>
+                    <svg id="myd3" width="500"  height="500"></svg>
+                </section>
+                <section data-markdown data-separator="^\n---\n" data-separator-vertical="^\n----\n">
+                    <script type="text/template">
+                    # Header
+                    
+                    ---
+                    
+                    ## Another slide
+
+                    </script>
+                </section>
+                <section data-markdown="contents.md" data-separator="^\n---\n" data-separator-vertical="^\n----\n">
+                    <script type="text/template"></script>
+                </section>
+            </div>
+        </div>
+        <script>
+            const revealPromise = Reveal.initialize({
+                plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ],
+                dependencies
+            }
+            )
+            <!-- d3.select("#myd3").append("circle").attr("fill", "blue").attr("cx", 250).attr("cy", 250).attr("r", 15); -->
+          </script>
+    </body>
+
+</html>
